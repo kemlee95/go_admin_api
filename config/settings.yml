@@ -1,0 +1,32 @@
+settings:
+  application:
+    mode: dev
+    host: 0.0.0.0
+    name: testApp
+    readtimeout: 1
+    writertimeout: 2
+    enabledp: false
+  logger:
+    path: temp/logs
+    stdout: ''
+    level: trace
+    enableddb: false
+  jwt:
+    secret: go-admin
+    timeout: 3600
+  database:
+    driver: mysql
+    source: root:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
+  gen:
+    dbname: dbname
+    frontpath: ../go-admin-ui/src
+  extend:
+    demo:
+      name: data
+  cache:
+    memory: '' 
+  queue:
+    memory:
+      poolSize: 100
+  locker:
+    redis:

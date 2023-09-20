@@ -1,0 +1,25 @@
+version: '3.9'
+
+volumes:
+  goadmin_data:
+services:
+  go-admin-api:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    container_name: go-admin
+    image: go-admin:local
+    privileged: true
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - ./config/:/go-admin-api/config/
+      - ./static/:/go-admin-api/static/
+      - ./temp/:/go-admin-api/temp/
+    networks:
+      - default
+networks:
+  myweb:
+    driver: bridge
+
